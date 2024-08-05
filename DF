@@ -1,0 +1,37 @@
+import pandas as pd
+
+
+df = pd.DataFrame({
+    "Matematicas":[6.5,5.5,4.4,3.3,3.3,3.3],
+    "Lenguaje":[5.5,2.2,1.4,5.3,5.3,5.3],
+    "Ed_Fisica":[6.5,4.5,5.2,6.3,6.3,6.3],
+    "Historia":[3.2,2.2,4.4,4.2,4.2,4.2],
+    "Artes":[7,6,5,7,7,7],
+    "Programacion":[7,2.2,1.3,3.1,3.1,3.1],
+    "Religion":[6.3,3.5,5.7,6.8,6.8,6.8]},
+    index=["Franco Loyola","Nahara Morales","Sebastian Contreras","Constanza Morales","Matias Veas","Luis Muñoz"]
+
+)
+
+#las primeras 5 filas
+df.head()
+
+#definir la cantidad de elementos que deseo mostrar
+df.head(6)
+
+#las ultimas 5
+df.tail()
+
+#definir la cantidad de elementos que deseo mostrar (ultimas)
+df.tail(6)
+
+## Imprimimos una columna en particular
+
+promedio= df[["Matematicas","Lenguaje","Ed_Fisica","Historia","Artes","Programacion","Religion"]].apply(lambda x: sum(x)/len(x),axis=1)
+
+#insertar una nueva columna
+
+df.insert(7,"eSTADO",promedio,allow_duplicates=False)
+#df.to_excel(r"C:\Excel\listadenotas.xlsx")
+
+df
